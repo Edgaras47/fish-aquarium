@@ -27,7 +27,6 @@ namespace FishAquariumWebApp.Configurations
         public virtual DbSet<ItemParameter> ItemParameter { get; set; }
         public virtual DbSet<Portion> Portion { get; set; }
         public virtual DbSet<Supplement> Supplement { get; set; }
-        public virtual DbSet<UserTypes> UserTypes { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -349,18 +348,6 @@ namespace FishAquariumWebApp.Configurations
                 entity.Property(e => e.Name)
                     .HasMaxLength(255)
                     .IsUnicode(false);
-            });
-
-            modelBuilder.Entity<UserTypes>(entity =>
-            {
-                entity.ToTable("UserTypes", "fish_aquarium");
-
-                entity.Property(e => e.Id).HasColumnType("int(11)");
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasColumnName("name")
-                    .HasColumnType("char(7)");
             });
         }
     }

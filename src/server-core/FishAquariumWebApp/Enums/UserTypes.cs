@@ -1,8 +1,15 @@
-﻿namespace FishAquariumWebApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FishAquariumWebApp.Models
 {
-    public class UserTypes
+ 
+    public enum UserTypes
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        [Display(Name = "Admin")]
+        Admin,
+        [Display(Name = "Worker")]
+        Worker,
+        [Display(Name = "Visitor")]
+        Visitor
     }
 }
